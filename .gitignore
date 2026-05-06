@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+*.py
+~$*
+output_images/
+output_pdf/
+inspect_thumbs/
+*.bat
+*.json
+*.xlsx
+logo_*_transparent.png

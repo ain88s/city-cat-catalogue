@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image SKU Identifier</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #f5f4f0;
+    color: #1a1a1a;
+    min-height: 100vh;
+  }
+
+  header {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    gap: 1rem;
+  }
+
+  header h1 {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 13px;
+    color: #aaa;
+  }
+
+  .header-stats span b {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  .btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: transparent;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+
+  .btn:hover { background: #333; }
+
+  .btn-primary {
+    background: #e8a020;
+    border-color: #e8a020;
+    color: #000;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover { background: #d49018; }
+
+  .btn-success {
+    background: #2d7a3a;
+    border-color: #2d7a3a;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .btn-success:hover { background: #256230; }
+
+  #drop-zone {
+    margin: 3rem auto;
+    max-width: 560px;
+    border: 2px dashed #bbb;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: #fff;
+  }
+
+  #drop-zone:hover, #drop-zone.drag-over {
+    border-color: #e8a020;
+    background: #fffbf2;
+  }
+
+  #drop-zone .icon {
+    font-size: 40px;
+    margin-bottom: 1rem;
+  }
+
+  #drop-zone h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  #drop-zone p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  #drop-zone input[type="file"] {
+    display: none;
+  }
+
+  #gallery-container {
+    padding: 1.5rem 2rem 4rem;
+    display: none;
+  }
+
+  .progress-bar-wrap {
+    background: #e0e0e0;
+    border-radius: 4px;
+    height: 6px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: #e8a020;
+    border-radius: 4px;
+    transition: width 0.3s;
+    width: 0%;
+  }
+
+  .folder-section {
+    margin-bottom: 3rem;
+  }
+
+  .folder-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #1a1a1a;
+  }
+
+  .folder-header h2 {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .folder-count {
+    font-size: 12px;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .folder-done-badge {
+    font-size: 11px;
+    background: #2d7a3a;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 20px;
+    display: none;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .image-card {
+    background: #fff;
+    border-radius: 10px;
+    border: 1.5px solid #e0e0e0;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .image-card.assigned {
+    border-color: #2d7a3a;
+  }
+
+  .image-card.skipped {
+    border-color: #bbb;
+    opacity: 0.6;
+  }
+
+  .image-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  }
+
+  .img-wrap {
+    width: 100%;
+    padding-top: 75%;
+    position: relative;
+    background: #f0f0f0;
+    cursor: pointer;
+  }
+
+  .img-wrap img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 6px;
+  }
+
+  .img-wrap .expand-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 3px 6px;
+    font-size: 11px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+
+  .img-wrap:hover .expand-btn { opacity: 1; }
+
+  .card-body {
+    padding: 10px 12px 12px;
+  }
+
+  .filename {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sku-input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1.5px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.15s;
+    background: #fafafa;
+  }
+
+  .sku-input:focus {
+    border-color: #e8a020;
+    background: #fff;
+  }
+
+  .sku-input.filled {
+    border-color: #2d7a3a;
+    background: #f0faf2;
+    color: #1a5c24;
+    font-weight: 600;
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .skip-btn {
+    flex: 1;
+    padding: 5px 8px;
+    border: 1px solid #ddd;
+    background: transparent;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #888;
+    transition: background 0.15s;
+  }
+
+  .skip-btn:hover { background: #f0f0f0; color: #444; }
+
+  .skip-btn.active {
+    background: #f0f0f0;
+    color: #444;
+    border-color: #bbb;
+  }
+
+  .assigned-badge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background: #2d7a3a;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 20px;
+    display: none;
+  }
+
+  .image-card.assigned .assigned-badge { display: block; }
+
+  /* Lightbox */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #lightbox.open { display: flex; }
+
+  #lightbox img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+
+  #lightbox-caption {
+    color: #ccc;
+    font-size: 13px;
+  }
+
+  #lightbox-close {
+    position: fixed;
+    top: 1rem;
+    right: 1.5rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  /* Export modal */
+  #export-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 998;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #export-modal.open { display: flex; }
+
+  .modal-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 480px;
+    width: 90%;
+  }
+
+  .modal-box h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .modal-box pre {
+    background: #f5f4f0;
+    border-radius: 6px;
+    padding: 1rem;
+    font-size: 12px;
+    font-family: monospace;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    white-space: pre;
+  }
+
+  .modal-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+
+  .modal-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .modal-btn-primary {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+    font-weight: 600;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .filter-bar input {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px 12px;
+    border: 1.5px solid #ddd;
+    border-radius: 7px;
+    font-size: 13px;
+    outline: none;
+    background: #fff;
+  }
+
+  .filter-bar input:focus { border-color: #e8a020; }
+
+  .filter-tabs {
+    display: flex;
+    gap: 6px;
+  }
+
+  .filter-tab {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .filter-tab.active {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #1a1a1a;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 3rem;
+    color: #888;
+    font-size: 14px;
+  }
+
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📦 SKU Image Identifier</h1>
+  <div class="header-stats">
+    <span><b id="stat-total">0</b> images</span>
+    <span><b id="stat-assigned">0</b> assigned</span>
+    <span><b id="stat-skipped">0</b> skipped</span>
+    <span><b id="stat-pending">0</b> pending</span>
+  </div>
+  <div class="header-actions">
+    <button class="btn" onclick="loadSavedSession()" title="Load previous session">Load session</button>
+    <button class="btn btn-primary" onclick="saveSession()">Save session</button>
+    <button class="btn btn-success" onclick="openExportModal()">Export CSV</button>
+  </div>
+</header>
+
+<div id="drop-zone" onclick="document.getElementById('file-input').click()">
+  <div class="icon">🗂️</div>
+  <h2>Drop your images folder here</h2>
+  <p>Or click to browse.<br>
+  Supports folders with subfolders — images will be grouped by subfolder.<br>
+  <small style="color:#999">JPG, PNG, WEBP, GIF accepted</small></p>
+  <input type="file" id="file-input" multiple accept="image/*" webkitdirectory>
+</div>
+
+<div id="gallery-container">
+  <div class="progress-bar-wrap">
+    <div class="progress-bar" id="progress-bar"></div>
+  </div>
+
+  <div class="filter-bar">
+    <input type="text" id="search-box" placeholder="Search by filename or SKU..." oninput="applyFilters()">
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-tab" onclick="setFilter('pending', this)">Pending</button>
+      <button class="filter-tab" onclick="setFilter('assigned', this)">Assigned</button>
+      <button class="filter-tab" onclick="setFilter('skipped', this)">Skipped</button>
+    </div>
+  </div>
+
+  <div id="folders-root"></div>
+</div>
+
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+</div>
+
+<div id="export-modal">
+  <div class="modal-box">
+    <h3>Export image_map.csv</h3>
+    <pre id="csv-preview"></pre>
+    <div class="modal-actions">
+      <button class="modal-btn" onclick="document.getElementById('export-modal').classList.remove('open')">Close</button>
+      <button class="modal-btn modal-btn-primary" onclick="downloadCSV()">Download CSV</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let allCards = [];
+let currentFilter = 'all';
+let imageData = {};
+
+const imageExtensions = new Set(['jpg','jpeg','png','webp','gif','bmp','tiff','avif']);
+
+function isImage(filename) {
+  return imageExtensions.has(filename.split('.').pop().toLowerCase());
+}
+
+function getFolderName(file) {
+  const parts = (file.webkitRelativePath || file.name).split('/');
+  if (parts.length <= 2) return '📁 Root folder';
+  return parts.slice(1, -1).join(' / ');
+}
+
+document.getElementById('file-input').addEventListener('change', function(e) {
+  handleFiles(Array.from(e.target.files));
+});
+
+const dropZone = document.getElementById('drop-zone');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  handleFiles(Array.from(e.dataTransfer.files));
+});
+
+function handleFiles(files) {
+  const images = files.filter(f => isImage(f.name));
+  if (!images.length) { showToast('No image files found.'); return; }
+
+  dropZone.style.display = 'none';
+  document.getElementById('gallery-container').style.display = 'block';
+
+  const folders = {};
+  images.forEach(file => {
+    const folder = getFolderName(file);
+    if (!folders[folder]) folders[folder] = [];
+    folders[folder].push(file);
+  });
+
+  const root = document.getElementById('folders-root');
+  root.innerHTML = '';
+  allCards = [];
+
+  Object.keys(folders).sort().forEach(folderName => {
+    const section = document.createElement('div');
+    section.className = 'folder-section';
+    section.dataset.folder = folderName;
+
+    section.innerHTML = `
+      <div class="folder-header">
+        <h2>${folderName}</h2>
+        <span class="folder-count">${folders[folderName].length}</span>
+        <span class="folder-done-badge" id="done-${CSS.escape(folderName)}">✓ Done</span>
+      </div>
+      <div class="image-grid" id="grid-${CSS.escape(folderName)}"></div>
+    `;
+    root.appendChild(section);
+
+    const grid = section.querySelector('.image-grid');
+
+    folders[folderName].forEach((file, idx) => {
+      const stableKey = (folderName + '||' + file.name).replace(/[^a-zA-Z0-9|_.]/g, '_');
+      const cardId = `card-${stableKey}`;
+      const card = document.createElement('div');
+      card.className = 'image-card';
+      card.dataset.cardId = cardId;
+      card.dataset.filename = file.name;
+      card.dataset.folder = folderName;
+      card.dataset.state = 'pending';
+      card.dataset.sku = '';
+
+      const url = URL.createObjectURL(file);
+      imageData[cardId] = { file, url, filename: file.name, folder: folderName, path: file.webkitRelativePath || file.name };
+
+      card.innerHTML = `
+        <span class="assigned-badge">✓ SKU set</span>
+        <div class="img-wrap" onclick="openLightbox('${cardId}')">
+          <img src="${url}" alt="${file.name}" loading="lazy">
+          <button class="expand-btn" onclick="event.stopPropagation(); openLightbox('${cardId}')">⤢ Zoom</button>
+        </div>
+        <div class="card-body">
+          <div class="filename" title="${file.webkitRelativePath || file.name}">${file.name}</div>
+          <input
+            type="text"
+            class="sku-input"
+            placeholder="Type SKU here..."
+            data-card="${cardId}"
+            oninput="onSkuInput(this, '${cardId}')"
+            onkeydown="onSkuKeydown(event, '${cardId}')"
+          >
+          <div class="card-actions">
+            <button class="skip-btn" onclick="toggleSkip('${cardId}')">Skip / No SKU</button>
+          </div>
+        </div>
+      `;
+
+      grid.appendChild(card);
+      allCards.push(card);
+    });
+  });
+
+  updateStats();
+}
+
+function onSkuInput(input, cardId) {
+  const card = document.querySelector(`[data-card-id="${cardId}"]`);
+  const val = input.value.trim();
+  card.dataset.sku = val;
+
+  if (val) {
+    card.dataset.state = 'assigned';
+    card.classList.add('assigned');
+    card.classList.remove('skipped');
+    input.classList.add('filled');
+    card.querySelector('.skip-btn').classList.remove('active');
+  } else {
+    card.dataset.state = 'pending';
+    card.classList.remove('assigned', 'skipped');
+    input.classList.remove('filled');
+  }
+
+  updateStats();
+  checkFolderDone(card.dataset.folder);
+}
+
+function onSkuKeydown(e, cardId) {
+  if (e.key === 'Enter' || e.key === 'Tab') {
+    e.preventDefault();
+    const allInputs = Array.from(document.querySelectorAll('.sku-input:not([disabled])'));
+    const idx = allInputs.indexOf(e.target);
+    const next = allInputs[idx + 1];
+    if (next) next.focus();
+  }
+}
+
+function toggleSkip(cardId) {
+  const card = document.querySelector(`[data-card-id="${cardId}"]`);
+  const input = card.querySelector('.sku-input');
+  const btn = card.querySelector('.skip-btn');
+
+  if (card.dataset.state === 'skipped') {
+    card.dataset.state = 'pending';
+    card.classList.remove('skipped');
+    input.disabled = false;
+    btn.classList.remove('active');
+    btn.textContent = 'Skip / No SKU';
+  } else {
+    card.dataset.state = 'skipped';
+    card.classList.add('skipped');
+    card.classList.remove('assigned');
+    input.value = '';
+    input.classList.remove('filled');
+    input.disabled = true;
+    card.dataset.sku = '';
+    btn.classList.add('active');
+    btn.textContent = 'Skipped';
+  }
+
+  updateStats();
+  checkFolderDone(card.dataset.folder);
+}
+
+function checkFolderDone(folderName) {
+  const folderCards = allCards.filter(c => c.dataset.folder === folderName);
+  const allDone = folderCards.every(c => c.dataset.state !== 'pending');
+  const badge = document.getElementById(`done-${CSS.escape(folderName)}`);
+  if (badge) badge.style.display = allDone ? 'inline-block' : 'none';
+}
+
+function updateStats() {
+  const total = allCards.length;
+  const assigned = allCards.filter(c => c.dataset.state === 'assigned').length;
+  const skipped = allCards.filter(c => c.dataset.state === 'skipped').length;
+  const pending = total - assigned - skipped;
+
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-assigned').textContent = assigned;
+  document.getElementById('stat-skipped').textContent = skipped;
+  document.getElementById('stat-pending').textContent = pending;
+
+  const pct = total > 0 ? ((assigned + skipped) / total * 100) : 0;
+  document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+function setFilter(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  const search = document.getElementById('search-box').value.toLowerCase();
+
+  allCards.forEach(card => {
+    const matchesFilter =
+      currentFilter === 'all' ||
+      card.dataset.state === currentFilter;
+
+    const matchesSearch =
+      !search ||
+      card.dataset.filename.toLowerCase().includes(search) ||
+      card.dataset.sku.toLowerCase().includes(search) ||
+      card.dataset.folder.toLowerCase().includes(search);
+
+    card.style.display = (matchesFilter && matchesSearch) ? '' : 'none';
+  });
+
+  document.querySelectorAll('.folder-section').forEach(section => {
+    const folder = section.dataset.folder;
+    const visibleCards = allCards.filter(c => c.dataset.folder === folder && c.style.display !== 'none');
+    section.style.display = visibleCards.length ? '' : 'none';
+  });
+}
+
+function openLightbox(cardId) {
+  const data = imageData[cardId];
+  if (!data) return;
+  document.getElementById('lightbox-img').src = data.url;
+  document.getElementById('lightbox-caption').textContent = data.path;
+  document.getElementById('lightbox').classList.add('open');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+function generateCSV() {
+  const rows = [['sku','filename','full_path','folder','state']];
+  allCards.forEach(card => {
+    const data = imageData[card.dataset.cardId];
+    rows.push([
+      card.dataset.sku || '',
+      data.filename,
+      data.path,
+      card.dataset.folder,
+      card.dataset.state
+    ]);
+  });
+  return rows.map(r => r.map(cell => `"${String(cell).replace(/"/g,'""')}"`).join(',')).join('\n');
+}
+
+function openExportModal() {
+  if (!allCards.length) { showToast('Load images first.'); return; }
+  const csv = generateCSV();
+  document.getElementById('csv-preview').textContent = csv.slice(0, 2000) + (csv.length > 2000 ? '\n...(truncated for preview)' : '');
+  document.getElementById('export-modal').classList.add('open');
+}
+
+function downloadCSV() {
+  const csv = generateCSV();
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'image_map.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  document.getElementById('export-modal').classList.remove('open');
+  showToast('image_map.csv downloaded!');
+}
+
+function saveSession() {
+  if (!allCards.length) { showToast('Nothing to save yet.'); return; }
+  const session = allCards.map(card => ({
+    id: card.dataset.cardId,
+    filename: card.dataset.filename,
+    folder: card.dataset.folder,
+    sku: card.dataset.sku,
+    state: card.dataset.state
+  }));
+  const blob = new Blob([JSON.stringify(session, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'sku_session.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  showToast('Session saved as sku_session.json');
+}
+
+function loadSavedSession() {
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = '.json';
+  input.onchange = e => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = evt => {
+      try {
+        const session = JSON.parse(evt.target.result);
+        let restored = 0;
+        session.forEach(item => {
+          const card = allCards.find(c =>
+            c.dataset.filename === item.filename &&
+            c.dataset.folder === item.folder
+          );
+          if (!card) return;
+          const inp = card.querySelector('.sku-input');
+          const cid = card.dataset.cardId;
+          if (item.state === 'assigned' && item.sku) {
+            inp.value = item.sku;
+            inp.classList.add('filled');
+            card.dataset.sku = item.sku;
+            card.dataset.state = 'assigned';
+            card.classList.add('assigned');
+            restored++;
+          } else if (item.state === 'skipped') {
+            toggleSkip(cid);
+          }
+          checkFolderDone(card.dataset.folder);
+        });
+        updateStats();
+        showToast(`Session restored — ${restored} SKUs loaded`);
+      } catch {
+        showToast('Could not read session file.');
+      }
+    };
+    reader.readAsText(file);
+  };
+  input.click();
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Anime — City Cat Collectibles</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F4F5F7;color:#0C2431;line-height:1.5}
+a{color:#C8CDD8;text-decoration:none}
+nav{background:#0C2431;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+nav .brand{color:#C8CDD8;font-size:20px;font-weight:800;letter-spacing:1px;margin-right:auto;text-transform:uppercase}
+nav a.nav-link{color:#fff;font-size:13px;font-weight:600;padding:6px 14px;border-radius:4px;transition:background .2s;text-transform:uppercase;letter-spacing:.5px}
+nav a.nav-link:hover,nav a.nav-link.active{background:rgba(200,205,216,.15);color:#C8CDD8}
+.cover{min-height:80vh;background:linear-gradient(135deg,#0C2431 0%,#1A3D52 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px}
+.cover .logo{max-height:140px;margin-bottom:24px}
+.cover h1{font-weight:900;font-size:clamp(2rem,8vw,4rem);color:#fff;line-height:1.1;text-transform:uppercase;letter-spacing:2px}
+.cover h1.gold{color:#C8CDD8}
+.cover h2{font-weight:500;font-size:clamp(.85rem,2.5vw,1.1rem);color:#C8CDD8;letter-spacing:6px;margin:16px 0 32px;text-transform:uppercase}
+.cover-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:600px}
+.cover-links a{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);padding:12px 28px;border-radius:6px;font-weight:700;font-size:14px;transition:all .25s;text-transform:uppercase;letter-spacing:1px}
+.cover-links a:hover{background:#C8CDD8;color:#0C2431;border-color:#C8CDD8}
+.cover-info{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;margin-top:auto;padding:32px 40px 24px;width:100%;max-width:900px;border-top:1px solid rgba(255,255,255,.08)}
+.cover-info div{flex:1;min-width:160px}
+.cover-info strong{display:block;color:#C8CDD8;font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;font-weight:600}
+.cover-info p{color:rgba(255,255,255,.5);font-size:12px;margin:0;font-weight:400}
+.page{padding:24px;max-width:1100px;margin:0 auto}
+.cat-banner{background:linear-gradient(135deg,#0C2431,#1A3D52);color:#fff;padding:28px 32px;border-radius:8px;margin-bottom:20px}
+.cat-banner h2{font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:1px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:box-shadow .2s;display:flex;flex-direction:column;border:1px solid rgba(10,17,40,0.10)}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.10)}
+.card-img{width:100%;aspect-ratio:1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:contain}
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%;height:100%}
+.carousel img{flex:0 0 100%;scroll-snap-align:start;width:100%;height:100%;object-fit:contain}
+.no-img{color:#aaa;font-size:11px;font-weight:500}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
+.sku{font-size:10px;color:#5A6177;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.title{font-size:12px;font-weight:600;line-height:1.4;color:#0C2431}
+.prices{display:flex;flex-direction:column;gap:2px;margin-top:auto;padding-top:8px;border-top:1px solid rgba(10,17,40,0.10)}
+.ws{font-size:14px;font-weight:700;color:#0C2431}
+.ret{font-size:11px;color:#5A6177;font-weight:500}
+.stock-yes{font-size:11px;color:#1A7A3C;font-weight:600}
+.stock-no{font-size:11px;color:#AA2222;font-weight:600}
+.min{font-size:10px;color:#aaa;font-weight:500}
+footer{text-align:center;padding:24px;color:#5A6177;font-size:11px;font-weight:500}
+footer strong{color:#0C2431;font-weight:700}
+.footer-logo{display:block;max-height:100px;margin:0 auto 14px}
+footer strong{color:#0C2431;font-weight:700}
+</style></head>
+<body>
+<nav>
+    <span class="brand">CITY CAT COLLECTIBLES</span>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link " href="About.html">About Us</a>
+    <a class="nav-link " href="Startup.html">Getting Started</a>
+    <a class="nav-link " href="Info.html">Info</a>
+    <a class="nav-link active" href="Anime.html">Anime</a>
+    <a class="nav-link " href="Disney.html">Disney</a>
+    <a class="nav-link " href="Sports.html">Sports</a>
+    <a class="nav-link " href="Other.html">Other</a>
+</nav>
+<div class="page">
+    <div class="cat-banner">
+        <h2>Anime</h2>
+    </div>
+    <div class="grid"><div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-001.jpg" alt="10 Panini Dragon Ball Super Trading Cards Packs #1" loading="lazy">
+<img src="images/CCC-001_1.jpg" alt="10 Panini Dragon Ball Super Trading Cards Packs #2" loading="lazy">
+<img src="images/CCC-001_2.jpg" alt="10 Panini Dragon Ball Super Trading Cards Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-001</div>
+        <div class="title">10 Panini Dragon Ball Super Trading Cards Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $17.00</span>
+            <span class="ret">Suggested Retail Price: $40 </span>
+        </div>
+        
+        <div class="min">Min. order: 10</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-002.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #1" loading="lazy">
+<img src="images/CCC-002_1.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #2" loading="lazy">
+<img src="images/CCC-002_2.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #3" loading="lazy">
+<img src="images/CCC-002_3.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #4" loading="lazy">
+<img src="images/CCC-002_4.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #5" loading="lazy">
+<img src="images/CCC-002_5.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #6" loading="lazy">
+<img src="images/CCC-002_6.jpg" alt="10 Panini Dragon Ball Super The Legend Of Goku Card Pack #7" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-002</div>
+        <div class="title">10 Panini Dragon Ball Super The Legend Of Goku Card Pack</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $24 </span>
+            <span class="ret">Suggested Retail Price: $45 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-003.jpg" alt="1996 Saint Seiya Vs Asgard Sticker Album + 50 Sticker Packs ( 200 Stickers ) #1" loading="lazy">
+<img src="images/CCC-003_1.jpg" alt="1996 Saint Seiya Vs Asgard Sticker Album + 50 Sticker Packs ( 200 Stickers ) #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-003</div>
+        <div class="title">1996 Saint Seiya Vs Asgard Sticker Album + 50 Sticker Packs ( 200 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $51 </span>
+            <span class="ret">Suggested Retail Price: $130 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-004.jpg" alt="1996 Saint Seiya 3 Vs Poseidon Sticker Album + 50 Sticker Packs ( 300 Stickers ) #1" loading="lazy">
+<img src="images/CCC-004_1.jpg" alt="1996 Saint Seiya 3 Vs Poseidon Sticker Album + 50 Sticker Packs ( 300 Stickers ) #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-004</div>
+        <div class="title">1996 Saint Seiya 3 Vs Poseidon Sticker Album + 50 Sticker Packs ( 300 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $58 </span>
+            <span class="ret">Suggested Retail Price: $150 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-011.jpg" alt="25 Imagics Saint Seiya War Of The Saint Trading Card Packs #1" loading="lazy">
+<img src="images/CCC-011_1.jpg" alt="25 Imagics Saint Seiya War Of The Saint Trading Card Packs #2" loading="lazy">
+<img src="images/CCC-011_2.jpg" alt="25 Imagics Saint Seiya War Of The Saint Trading Card Packs #3" loading="lazy">
+<img src="images/CCC-011_3.jpg" alt="25 Imagics Saint Seiya War Of The Saint Trading Card Packs #4" loading="lazy">
+<img src="images/CCC-011_4.jpg" alt="25 Imagics Saint Seiya War Of The Saint Trading Card Packs #5" loading="lazy">
+<img src="images/CCC-011_5.jpg" alt="25 Imagics Saint Seiya War Of The Saint Trading Card Packs #6" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-011</div>
+        <div class="title">25 Imagics Saint Seiya War Of The Saint Trading Card Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $14.00</span>
+            <span class="ret">Suggested Retail Price: $33 </span>
+        </div>
+        
+        <div class="min">Min. order: 10</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-012.jpg" alt="50 Arale Dr Slump Sticker Packs #1" loading="lazy">
+<img src="images/CCC-012_1.jpg" alt="50 Arale Dr Slump Sticker Packs #2" loading="lazy">
+<img src="images/CCC-012_2.jpg" alt="50 Arale Dr Slump Sticker Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-012</div>
+        <div class="title">50 Arale Dr Slump Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $14.00</span>
+            <span class="ret">Suggested Retail Price: $30 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-013</div>
+        <div class="title">50 Panini Dragon Ball Super Packs (250 Stickers ) + Sticker Album Goku Vegeta</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $60 </span>
+            <span class="ret">Suggested Retail Price: $120 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-014.jpg" alt="50 Panini Naruto Battle Of The Ninja Sticker Packs #1" loading="lazy">
+<img src="images/CCC-014_1.jpg" alt="50 Panini Naruto Battle Of The Ninja Sticker Packs #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-014</div>
+        <div class="title">50 Panini Naruto Battle Of The Ninja Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $37 </span>
+            <span class="ret">Suggested Retail Price: $61 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-016</div>
+        <div class="title">Alice 19th Sealed Boxset Complete Series Panini By Yuu Watase In Spanish Manga</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-019</div>
+        <div class="title">Attack On Titan 2018 Panini Metax Trading Card Game Sealed Box Shingeki no Kyoji</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $60 </span>
+            <span class="ret">Suggested Retail Price: $95 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-020</div>
+        <div class="title">Bestiarius Box Set Panini Manga 2021 by Masasumi Kakizaki in SPANISH Sealed</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-021</div>
+        <div class="title">Blackbird Manga Complete Box Set Panini 2021 in Spanish by Kanoko Sakurakouji</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-022</div>
+        <div class="title">Boood Lad Factory Sealed Box Set Manga Collection in SPANISH by Kodama Yuuki</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-023</div>
+        <div class="title">Btooom! Boxset By Inoue Junya SPANISH Factory Sealed Complete Set</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-024</div>
+        <div class="title">DEATH NOTE COMPLETE BOX SET Vol 1-13 in Spanish 2020 By Tsugumi Ohba ( Sealed )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-025</div>
+        <div class="title">Defense Devil Panini Box Set Manga 2018 by Youn In Wan in Spanish Factory Sealed</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-028.jpg" alt="Dragon Ball Super Panini Ultimate Warriors Sticker Album Softcover Goku Jiren #1" loading="lazy">
+<img src="images/CCC-028_1.jpg" alt="Dragon Ball Super Panini Ultimate Warriors Sticker Album Softcover Goku Jiren #2" loading="lazy">
+<img src="images/CCC-028_2.jpg" alt="Dragon Ball Super Panini Ultimate Warriors Sticker Album Softcover Goku Jiren #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-028</div>
+        <div class="title">Dragon Ball Super Panini Ultimate Warriors Sticker Album Softcover Goku Jiren</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-029</div>
+        <div class="title">Fairy Tail Box Set Vol 1-24 Panini Manga Collection in SPANISH by Hiro Mashima</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-030</div>
+        <div class="title">High School of the Dead Manga Box Set in Spanish Panini 2021 Daisuke Sato</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-031</div>
+        <div class="title">Love Hina Boxset Complete Manga Collection In Spanish By Ken Akamatsu Sealed</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-033</div>
+        <div class="title">Naruto: Secret History Of The Akatsuki Panini Novel (Spanish 250 Pages) 2022</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-035.jpg" alt="Panini Dragon Ball 3 Sticker Album #1" loading="lazy">
+<img src="images/CCC-035_1.jpg" alt="Panini Dragon Ball 3 Sticker Album #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-035</div>
+        <div class="title">Panini Dragon Ball 3 Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $13 </span>
+            <span class="ret">Suggested Retail Price: $19 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-036</div>
+        <div class="title">Panini Dragon Ball Super 2 Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-037</div>
+        <div class="title">Panini Dragon Ball Super Ultimate Warriors Hardcover Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $20 </span>
+            <span class="ret">Suggested Retail Price: $34 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-038</div>
+        <div class="title">Panini Dragon Ball Super Ultimate Warriors Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $9 </span>
+            <span class="ret">Suggested Retail Price: $15 </span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-039</div>
+        <div class="title">Panini Dragon Ball Super Ultimate Warriors Sticker Box (250 Stickers 50 Packs )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $45 </span>
+            <span class="ret">Suggested Retail Price: $60 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-041.jpg" alt="10 Panini Metax Attack On Titan Card Packs #1" loading="lazy">
+<img src="images/CCC-041_1.jpg" alt="10 Panini Metax Attack On Titan Card Packs #2" loading="lazy">
+<img src="images/CCC-041_2.jpg" alt="10 Panini Metax Attack On Titan Card Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-041</div>
+        <div class="title">10 Panini Metax Attack On Titan Card Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $23 </span>
+            <span class="ret">Suggested Retail Price: $40 </span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-042</div>
+        <div class="title">Panini Naruto Factory Sealed Box Hokage 2023 (18 Packs 144 Cards ) Sazuke Itachi</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $50 </span>
+            <span class="ret">Suggested Retail Price: $92 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-043.jpg" alt="10 Panini Dragon Ball Z Fusion Card Packs #1" loading="lazy">
+<img src="images/CCC-043_1.jpg" alt="10 Panini Dragon Ball Z Fusion Card Packs #2" loading="lazy">
+<img src="images/CCC-043_2.jpg" alt="10 Panini Dragon Ball Z Fusion Card Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-043</div>
+        <div class="title">10 Panini Dragon Ball Z Fusion Card Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $26 </span>
+            <span class="ret">Suggested Retail Price: $43 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-044</div>
+        <div class="title">50 Panini Naruto Shippuden Ninja 250 Sticker Packs Itachi Pain Madara Tsunade</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $35 </span>
+            <span class="ret">Suggested Retail Price: $60 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-045</div>
+        <div class="title">Panini One Piece Epic Journey Trading Cards Sealed Box ( 50 Packs - 300 Cards )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $50 </span>
+            <span class="ret">Suggested Retail Price: $110 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-046.jpg" alt="Panini One Piece Sticker Album #1" loading="lazy">
+<img src="images/CCC-046_1.jpg" alt="Panini One Piece Sticker Album #2" loading="lazy">
+<img src="images/CCC-046_2.jpg" alt="Panini One Piece Sticker Album #3" loading="lazy">
+<img src="images/CCC-046_3.jpg" alt="Panini One Piece Sticker Album #4" loading="lazy">
+<img src="images/CCC-046_4.jpg" alt="Panini One Piece Sticker Album #5" loading="lazy">
+<img src="images/CCC-046_5.jpg" alt="Panini One Piece Sticker Album #6" loading="lazy">
+<img src="images/CCC-046_6.jpg" alt="Panini One Piece Sticker Album #7" loading="lazy">
+<img src="images/CCC-046_7.jpg" alt="Panini One Piece Sticker Album #8" loading="lazy">
+<img src="images/CCC-046_8.jpg" alt="Panini One Piece Sticker Album #9" loading="lazy">
+<img src="images/CCC-046_9.jpg" alt="Panini One Piece Sticker Album #10" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-046</div>
+        <div class="title">Panini One Piece Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $6 </span>
+            <span class="ret">Suggested Retail Price: $13 </span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-047.jpg" alt="Panini Saint Seiya Sticker Album #1" loading="lazy">
+<img src="images/CCC-047_1.jpg" alt="Panini Saint Seiya Sticker Album #2" loading="lazy">
+<img src="images/CCC-047_2.jpg" alt="Panini Saint Seiya Sticker Album #3" loading="lazy">
+<img src="images/CCC-047_3.jpg" alt="Panini Saint Seiya Sticker Album #4" loading="lazy">
+<img src="images/CCC-047_4.jpg" alt="Panini Saint Seiya Sticker Album #5" loading="lazy">
+<img src="images/CCC-047_5.jpg" alt="Panini Saint Seiya Sticker Album #6" loading="lazy">
+<img src="images/CCC-047_6.jpg" alt="Panini Saint Seiya Sticker Album #7" loading="lazy">
+<img src="images/CCC-047_7.jpg" alt="Panini Saint Seiya Sticker Album #8" loading="lazy">
+<img src="images/CCC-047_8.jpg" alt="Panini Saint Seiya Sticker Album #9" loading="lazy">
+<img src="images/CCC-047_9.jpg" alt="Panini Saint Seiya Sticker Album #10" loading="lazy">
+<img src="images/CCC-047_10.jpg" alt="Panini Saint Seiya Sticker Album #11" loading="lazy">
+<img src="images/CCC-047_11.jpg" alt="Panini Saint Seiya Sticker Album #12" loading="lazy">
+<img src="images/CCC-047_12.jpg" alt="Panini Saint Seiya Sticker Album #13" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-047</div>
+        <div class="title">Panini Saint Seiya Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $15 </span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-048.jpg" alt="Pokemon Red Pokedex Sticker Album #1" loading="lazy">
+<img src="images/CCC-048_1.jpg" alt="Pokemon Red Pokedex Sticker Album #2" loading="lazy">
+<img src="images/CCC-048_2.jpg" alt="Pokemon Red Pokedex Sticker Album #3" loading="lazy">
+<img src="images/CCC-048_3.jpg" alt="Pokemon Red Pokedex Sticker Album #4" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-048</div>
+        <div class="title">Pokemon Red Pokedex Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $15 </span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-049.jpg" alt="Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards) #1" loading="lazy">
+<img src="images/CCC-049_1.jpg" alt="Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards) #2" loading="lazy">
+<img src="images/CCC-049_2.jpg" alt="Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards) #3" loading="lazy">
+<img src="images/CCC-049_3.jpg" alt="Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards) #4" loading="lazy">
+<img src="images/CCC-049_4.jpg" alt="Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards) #5" loading="lazy">
+<img src="images/CCC-049_5.jpg" alt="Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards) #6" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-049</div>
+        <div class="title">Pokemon Sticker & Card Album Collection + Pokemon Box (25 packs 25 Cards)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $47 </span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-050.jpg" alt="Pokemon Yellow Pokedex Sticker Abum #1" loading="lazy">
+<img src="images/CCC-050_1.jpg" alt="Pokemon Yellow Pokedex Sticker Abum #2" loading="lazy">
+<img src="images/CCC-050_2.jpg" alt="Pokemon Yellow Pokedex Sticker Abum #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-050</div>
+        <div class="title">Pokemon Yellow Pokedex Sticker Abum</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $15 </span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-051</div>
+        <div class="title">Rin-ne Sealed Manga Boxset In Spanish By Rumiko Takahashi Tome 1-20 Circle of Re</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-052</div>
+        <div class="title">Rin-ne Sealed Manga Boxset In Spanish By Rumiko Takahashi Tome 21-40 Circle of R</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-053.jpg" alt="Saint Seiya 2 Asgard Sticker Album" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-053</div>
+        <div class="title">Saint Seiya 2 Asgard Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $30 </span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-054.jpg" alt="Saint Seiya Poseidon Sticker Album #1" loading="lazy">
+<img src="images/CCC-054_1.jpg" alt="Saint Seiya Poseidon Sticker Album #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-054</div>
+        <div class="title">Saint Seiya Poseidon Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $30 </span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-055</div>
+        <div class="title">Strobe Edge Panini Sealed Boxset In Spanish By Lo Sakisaka Shojo Manga</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-056</div>
+        <div class="title">Tokyo Ghoul Factory Sealed Box Set Vol 1 - #14 Panini Spanish Edition 2020</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-057</div>
+        <div class="title">Weiss Schuarz Attack On Titans Final Season Trading Cards Box</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $28 </span>
+            <span class="ret">Suggested Retail Price: $44 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-058</div>
+        <div class="title">Yakumo Psychic Detective Sealed Manga Boxset By Manabu Kaminaga In Spanish</div>
+        <div class="prices">
+            <span class="ws">Wholesale: —</span>
+            <span class="ret">Suggested Retail Price: —</span>
+        </div>
+        <div class="stock-no">● Out of stock</div>
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-059.jpg" alt="x10 Panini Dragon Ball Super 2 Sticker Packs + Sticker Album (50 Stickers)" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-059</div>
+        <div class="title">x10 Panini Dragon Ball Super 2 Sticker Packs + Sticker Album (50 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $25.00</span>
+            <span class="ret">Suggested Retail Price: $39.00</span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-060.jpg" alt="x25 Panini One Piece Sticker & Cards Collection Packs Luffy Nami Zoro Sanji #1" loading="lazy">
+<img src="images/CCC-060_1.jpg" alt="x25 Panini One Piece Sticker & Cards Collection Packs Luffy Nami Zoro Sanji #2" loading="lazy">
+<img src="images/CCC-060_2.jpg" alt="x25 Panini One Piece Sticker & Cards Collection Packs Luffy Nami Zoro Sanji #3" loading="lazy">
+<img src="images/CCC-060_3.jpg" alt="x25 Panini One Piece Sticker & Cards Collection Packs Luffy Nami Zoro Sanji #4" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-060</div>
+        <div class="title">x25 Panini One Piece Sticker & Cards Collection Packs Luffy Nami Zoro Sanji</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $27.00 </span>
+            <span class="ret">Suggested Retail Price: $35 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-061.jpg" alt="x25 Panini One Piece Sticker Packs + Sticker Album W 25 Cards Zoro Nami Luffy #1" loading="lazy">
+<img src="images/CCC-061_1.jpg" alt="x25 Panini One Piece Sticker Packs + Sticker Album W 25 Cards Zoro Nami Luffy #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-061</div>
+        <div class="title">x25 Panini One Piece Sticker Packs + Sticker Album W 25 Cards Zoro Nami Luffy</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $30.00 </span>
+            <span class="ret">Suggested Retail Price: $43 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-062.jpg" alt="x40 Panini Saint Seiya Sticker Packs+ Sticker Album (200 Stickers) Asgard Camus #1" loading="lazy">
+<img src="images/CCC-062_1.jpg" alt="x40 Panini Saint Seiya Sticker Packs+ Sticker Album (200 Stickers) Asgard Camus #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-062</div>
+        <div class="title">x40 Panini Saint Seiya Sticker Packs+ Sticker Album (200 Stickers) Asgard Camus</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $45.00 </span>
+            <span class="ret">Suggested Retail Price: $90 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-063.jpg" alt="x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon #1" loading="lazy">
+<img src="images/CCC-063_1.jpg" alt="x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon #2" loading="lazy">
+<img src="images/CCC-063_2.jpg" alt="x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon #3" loading="lazy">
+<img src="images/CCC-063_3.jpg" alt="x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon #4" loading="lazy">
+<img src="images/CCC-063_4.jpg" alt="x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon #5" loading="lazy">
+<img src="images/CCC-063_5.jpg" alt="x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon #6" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-063</div>
+        <div class="title">x50 Digimon Sticker Packs + Sticker Album (300 Stickers ) Angewomon Piedmon</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $37.00 </span>
+            <span class="ret">Suggested Retail Price: $80.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-064.jpg" alt="x50 Panini Dragon Ball Super Sticker Packs ( 250 Stickers ) Goku Vegeta Bills #1" loading="lazy">
+<img src="images/CCC-064_1.jpg" alt="x50 Panini Dragon Ball Super Sticker Packs ( 250 Stickers ) Goku Vegeta Bills #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-064</div>
+        <div class="title">x50 Panini Dragon Ball Super Sticker Packs ( 250 Stickers ) Goku Vegeta Bills</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $36.00 </span>
+            <span class="ret">Suggested Retail Price: $65.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-065.jpg" alt="x50 Panini Dragon Ball Super Ultimate Warriors Sticker Packs ( 250 Stickers ) #1" loading="lazy">
+<img src="images/CCC-065_1.jpg" alt="x50 Panini Dragon Ball Super Ultimate Warriors Sticker Packs ( 250 Stickers ) #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-065</div>
+        <div class="title">x50 Panini Dragon Ball Super Ultimate Warriors Sticker Packs ( 250 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $35 </span>
+            <span class="ret">Suggested Retail Price: $48 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-066.jpg" alt="x50 Saint Seiya Sticker Packs (250 Stickers) Hades Panini #1" loading="lazy">
+<img src="images/CCC-066_1.jpg" alt="x50 Saint Seiya Sticker Packs (250 Stickers) Hades Panini #2" loading="lazy">
+<img src="images/CCC-066_2.jpg" alt="x50 Saint Seiya Sticker Packs (250 Stickers) Hades Panini #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-066</div>
+        <div class="title">x50 Saint Seiya Sticker Packs (250 Stickers) Hades Panini</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $32.00 </span>
+            <span class="ret">Suggested Retail Price: $50.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-216</div>
+        <div class="title">Weiss Schuarz Seven Deadly Sins Trading Cards Box</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $33.00 </span>
+            <span class="ret">Suggested Retail Price: $45.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-225.jpg" alt="10 Pokemon Postcards Packs Navarrete #1" loading="lazy">
+<img src="images/CCC-225_1.jpg" alt="10 Pokemon Postcards Packs Navarrete #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-225</div>
+        <div class="title">10 Pokemon Postcards Packs Navarrete</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $23.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-236.jpg" alt="50 Navarrete Saint Seiya Sticker Packs #1" loading="lazy">
+<img src="images/CCC-236_1.jpg" alt="50 Navarrete Saint Seiya Sticker Packs #2" loading="lazy">
+<img src="images/CCC-236_2.jpg" alt="50 Navarrete Saint Seiya Sticker Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-236</div>
+        <div class="title">50 Navarrete Saint Seiya Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $22.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-241.jpg" alt="Arale Dr Slump Sticker Album (softcover) #1" loading="lazy">
+<img src="images/CCC-241_1.jpg" alt="Arale Dr Slump Sticker Album (softcover) #2" loading="lazy">
+<img src="images/CCC-241_2.jpg" alt="Arale Dr Slump Sticker Album (softcover) #3" loading="lazy">
+<img src="images/CCC-241_3.jpg" alt="Arale Dr Slump Sticker Album (softcover) #4" loading="lazy">
+<img src="images/CCC-241_4.jpg" alt="Arale Dr Slump Sticker Album (softcover) #5" loading="lazy">
+<img src="images/CCC-241_5.jpg" alt="Arale Dr Slump Sticker Album (softcover) #6" loading="lazy">
+<img src="images/CCC-241_6.jpg" alt="Arale Dr Slump Sticker Album (softcover) #7" loading="lazy">
+<img src="images/CCC-241_7.jpg" alt="Arale Dr Slump Sticker Album (softcover) #8" loading="lazy">
+<img src="images/CCC-241_8.jpg" alt="Arale Dr Slump Sticker Album (softcover) #9" loading="lazy">
+<img src="images/CCC-241_9.jpg" alt="Arale Dr Slump Sticker Album (softcover) #10" loading="lazy">
+<img src="images/CCC-241_10.jpg" alt="Arale Dr Slump Sticker Album (softcover) #11" loading="lazy">
+<img src="images/CCC-241_11.jpg" alt="Arale Dr Slump Sticker Album (softcover) #12" loading="lazy">
+<img src="images/CCC-241_12.jpg" alt="Arale Dr Slump Sticker Album (softcover) #13" loading="lazy">
+<img src="images/CCC-241_13.jpg" alt="Arale Dr Slump Sticker Album (softcover) #14" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-241</div>
+        <div class="title">Arale Dr Slump Sticker Album (softcover)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $35.00</span>
+            <span class="ret">Suggested Retail Price: $50.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-243.jpg" alt="50 Panini Captain Tsubasa Packs ( 250 Stickers ) + Album ( Super Campeones )" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-243</div>
+        <div class="title">50 Panini Captain Tsubasa Packs ( 250 Stickers ) + Album ( Super Campeones )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $24.00 </span>
+            <span class="ret">Suggested Retail Price: $55.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-244.jpg" alt="50 Panini Captain Tsubasa Sticker Packs #1" loading="lazy">
+<img src="images/CCC-244_1.jpg" alt="50 Panini Captain Tsubasa Sticker Packs #2" loading="lazy">
+<img src="images/CCC-244_2.jpg" alt="50 Panini Captain Tsubasa Sticker Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-244</div>
+        <div class="title">50 Panini Captain Tsubasa Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $22.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-251.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #1" loading="lazy">
+<img src="images/CCC-251_1.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #2" loading="lazy">
+<img src="images/CCC-251_2.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #3" loading="lazy">
+<img src="images/CCC-251_3.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #4" loading="lazy">
+<img src="images/CCC-251_4.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #5" loading="lazy">
+<img src="images/CCC-251_5.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #6" loading="lazy">
+<img src="images/CCC-251_6.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #7" loading="lazy">
+<img src="images/CCC-251_7.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #8" loading="lazy">
+<img src="images/CCC-251_8.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #9" loading="lazy">
+<img src="images/CCC-251_9.jpg" alt="One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro #10" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-251</div>
+        <div class="title">One Piece Sticker Album + 50 Sticker Packs Navarrete Nami Luffy Zoro</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $44.00 </span>
+            <span class="ret">Suggested Retail Price: $78.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-254.jpg" alt="Panini Captain Tsubasa Sticker Album #1" loading="lazy">
+<img src="images/CCC-254_1.jpg" alt="Panini Captain Tsubasa Sticker Album #2" loading="lazy">
+<img src="images/CCC-254_2.jpg" alt="Panini Captain Tsubasa Sticker Album #3" loading="lazy">
+<img src="images/CCC-254_3.jpg" alt="Panini Captain Tsubasa Sticker Album #4" loading="lazy">
+<img src="images/CCC-254_4.jpg" alt="Panini Captain Tsubasa Sticker Album #5" loading="lazy">
+<img src="images/CCC-254_5.jpg" alt="Panini Captain Tsubasa Sticker Album #6" loading="lazy">
+<img src="images/CCC-254_6.jpg" alt="Panini Captain Tsubasa Sticker Album #7" loading="lazy">
+<img src="images/CCC-254_7.jpg" alt="Panini Captain Tsubasa Sticker Album #8" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-254</div>
+        <div class="title">Panini Captain Tsubasa Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $12.00 </span>
+            <span class="ret">Suggested Retail Price: $19.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-266.jpg" alt="x50 Digimon Navarrete Sticker Packs (250 Stickers) Angemon #1" loading="lazy">
+<img src="images/CCC-266_1.jpg" alt="x50 Digimon Navarrete Sticker Packs (250 Stickers) Angemon #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-266</div>
+        <div class="title">x50 Digimon Navarrete Sticker Packs (250 Stickers) Angemon</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $20.00 </span>
+            <span class="ret">Suggested Retail Price: $42.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-281</div>
+        <div class="title">50 Saint Seiya 2 Asgard Sticker Packs (200 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $37 </span>
+            <span class="ret">Suggested Retail Price: $92 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-289.jpg" alt="50 Navarrete One Piece Sticker Packs (250 Stickers) #1" loading="lazy">
+<img src="images/CCC-289_1.jpg" alt="50 Navarrete One Piece Sticker Packs (250 Stickers) #2" loading="lazy">
+<img src="images/CCC-289_2.jpg" alt="50 Navarrete One Piece Sticker Packs (250 Stickers) #3" loading="lazy">
+<img src="images/CCC-289_3.jpg" alt="50 Navarrete One Piece Sticker Packs (250 Stickers) #4" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-289</div>
+        <div class="title">50 Navarrete One Piece Sticker Packs (250 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $22.00</span>
+            <span class="ret">Suggested Retail Price: $38.00</span>
+        </div>
+        
+        <div class="min">Min. order: 10</div>
+    </div>
+</div></div>
+</div>
+<footer>
+    <img class="footer-logo" src="images/logo_footer.png" alt="City Cat Collectibles">
+    <p><strong>City Cat Collectibles</strong> &mdash; Wholesale Catalogue &mdash; 2026</p>
+    <p>Telegram: t.me/+6btyrjZ15hg1MWNh &bull; Phone: +1 626 353 1845 &bull; Instagram: @citycatcollectibles</p>
+</footer>
+</body></html>
