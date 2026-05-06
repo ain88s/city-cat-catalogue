@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sports — City Cat Collectibles</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F4F5F7;color:#0C2431;line-height:1.5}
+a{color:#C8CDD8;text-decoration:none}
+nav{background:#0C2431;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+nav .brand{color:#C8CDD8;font-size:20px;font-weight:800;letter-spacing:1px;margin-right:auto;text-transform:uppercase}
+nav a.nav-link{color:#fff;font-size:13px;font-weight:600;padding:6px 14px;border-radius:4px;transition:background .2s;text-transform:uppercase;letter-spacing:.5px}
+nav a.nav-link:hover,nav a.nav-link.active{background:rgba(200,205,216,.15);color:#C8CDD8}
+.cover{min-height:80vh;background:linear-gradient(135deg,#0C2431 0%,#1A3D52 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px}
+.cover .logo{max-height:140px;margin-bottom:24px}
+.cover h1{font-weight:900;font-size:clamp(2rem,8vw,4rem);color:#fff;line-height:1.1;text-transform:uppercase;letter-spacing:2px}
+.cover h1.gold{color:#C8CDD8}
+.cover h2{font-weight:500;font-size:clamp(.85rem,2.5vw,1.1rem);color:#C8CDD8;letter-spacing:6px;margin:16px 0 32px;text-transform:uppercase}
+.cover-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:600px}
+.cover-links a{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);padding:12px 28px;border-radius:6px;font-weight:700;font-size:14px;transition:all .25s;text-transform:uppercase;letter-spacing:1px}
+.cover-links a:hover{background:#C8CDD8;color:#0C2431;border-color:#C8CDD8}
+.cover-info{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;margin-top:auto;padding:32px 40px 24px;width:100%;max-width:900px;border-top:1px solid rgba(255,255,255,.08)}
+.cover-info div{flex:1;min-width:160px}
+.cover-info strong{display:block;color:#C8CDD8;font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;font-weight:600}
+.cover-info p{color:rgba(255,255,255,.5);font-size:12px;margin:0;font-weight:400}
+.page{padding:24px;max-width:1100px;margin:0 auto}
+.cat-banner{background:linear-gradient(135deg,#0C2431,#1A3D52);color:#fff;padding:28px 32px;border-radius:8px;margin-bottom:20px}
+.cat-banner h2{font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:1px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:box-shadow .2s;display:flex;flex-direction:column;border:1px solid rgba(10,17,40,0.10)}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.10)}
+.card-img{width:100%;aspect-ratio:1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:contain}
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%;height:100%}
+.carousel img{flex:0 0 100%;scroll-snap-align:start;width:100%;height:100%;object-fit:contain}
+.no-img{color:#aaa;font-size:11px;font-weight:500}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
+.sku{font-size:10px;color:#5A6177;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.title{font-size:12px;font-weight:600;line-height:1.4;color:#0C2431}
+.prices{display:flex;flex-direction:column;gap:2px;margin-top:auto;padding-top:8px;border-top:1px solid rgba(10,17,40,0.10)}
+.ws{font-size:14px;font-weight:700;color:#0C2431}
+.ret{font-size:11px;color:#5A6177;font-weight:500}
+.stock-yes{font-size:11px;color:#1A7A3C;font-weight:600}
+.stock-no{font-size:11px;color:#AA2222;font-weight:600}
+.min{font-size:10px;color:#aaa;font-weight:500}
+footer{text-align:center;padding:24px;color:#5A6177;font-size:11px;font-weight:500}
+footer strong{color:#0C2431;font-weight:700}
+.footer-logo{display:block;max-height:100px;margin:0 auto 14px}
+footer strong{color:#0C2431;font-weight:700}
+</style></head>
+<body>
+<nav>
+    <span class="brand">CITY CAT COLLECTIBLES</span>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link " href="About.html">About Us</a>
+    <a class="nav-link " href="Startup.html">Getting Started</a>
+    <a class="nav-link " href="Info.html">Info</a>
+    <a class="nav-link " href="Anime.html">Anime</a>
+    <a class="nav-link " href="Disney.html">Disney</a>
+    <a class="nav-link active" href="Sports.html">Sports</a>
+    <a class="nav-link " href="Other.html">Other</a>
+</nav>
+<div class="page">
+    <div class="cat-banner">
+        <h2>Sports</h2>
+    </div>
+    <div class="grid"><div class="card">
+    <div class="card-img"><img src="images/CCC-008.jpg" alt="Panini NFL 2017 Sticker Album Softcover" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-008</div>
+        <div class="title">Panini NFL 2017 Sticker Album Softcover</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $9.00</span>
+            <span class="ret">Suggested Retail Price: $14.00</span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-009.jpg" alt="50 Panini 2019 NFL Sticker Packs (250 Stickers and 50 cards) #1" loading="lazy">
+<img src="images/CCC-009_1.jpg" alt="50 Panini 2019 NFL Sticker Packs (250 Stickers and 50 cards) #2" loading="lazy">
+<img src="images/CCC-009_2.jpg" alt="50 Panini 2019 NFL Sticker Packs (250 Stickers and 50 cards) #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-009</div>
+        <div class="title">50 Panini 2019 NFL Sticker Packs (250 Stickers and 50 cards)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $33.00</span>
+            <span class="ret">Suggested Retail Price: $52.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-026.jpg" alt="WWE Superstar Navarrete (250 Stickers) #1" loading="lazy">
+<img src="images/CCC-026_1.jpg" alt="WWE Superstar Navarrete (250 Stickers) #2" loading="lazy">
+<img src="images/CCC-026_2.jpg" alt="WWE Superstar Navarrete (250 Stickers) #3" loading="lazy">
+<img src="images/CCC-026_3.jpg" alt="WWE Superstar Navarrete (250 Stickers) #4" loading="lazy">
+<img src="images/CCC-026_4.jpg" alt="WWE Superstar Navarrete (250 Stickers) #5" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-026</div>
+        <div class="title">WWE Superstar Navarrete (250 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $20.00</span>
+            <span class="ret">Suggested Retail Price: $32.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-149.jpg" alt="Panini Euro 2020 Sticker Box (250 Stickers) Mbappe #1" loading="lazy">
+<img src="images/CCC-149_1.jpg" alt="Panini Euro 2020 Sticker Box (250 Stickers) Mbappe #2" loading="lazy">
+<img src="images/CCC-149_2.jpg" alt="Panini Euro 2020 Sticker Box (250 Stickers) Mbappe #3" loading="lazy">
+<img src="images/CCC-149_3.jpg" alt="Panini Euro 2020 Sticker Box (250 Stickers) Mbappe #4" loading="lazy">
+<img src="images/CCC-149_4.jpg" alt="Panini Euro 2020 Sticker Box (250 Stickers) Mbappe #5" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-149</div>
+        <div class="title">Panini Euro 2020 Sticker Box (250 Stickers) Mbappe</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $21.00</span>
+            <span class="ret">Suggested Retail Price: $37.00</span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-227.jpg" alt="2017 Panini NFL 50 Sticker Packs (250 Stickers )" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-227</div>
+        <div class="title">2017 Panini NFL 50 Sticker Packs (250 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $21.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-228.jpg" alt="2017-2018 Panini NBA Box ( 50 Packs) (200 Stickers 50 Cards Per Box) #1" loading="lazy">
+<img src="images/CCC-228_1.jpg" alt="2017-2018 Panini NBA Box ( 50 Packs) (200 Stickers 50 Cards Per Box) #2" loading="lazy">
+<img src="images/CCC-228_2.jpg" alt="2017-2018 Panini NBA Box ( 50 Packs) (200 Stickers 50 Cards Per Box) #3" loading="lazy">
+<img src="images/CCC-228_3.jpg" alt="2017-2018 Panini NBA Box ( 50 Packs) (200 Stickers 50 Cards Per Box) #4" loading="lazy">
+<img src="images/CCC-228_4.jpg" alt="2017-2018 Panini NBA Box ( 50 Packs) (200 Stickers 50 Cards Per Box) #5" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-228</div>
+        <div class="title">2017-2018 Panini NBA Box ( 50 Packs) (200 Stickers 50 Cards Per Box)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $30.00 </span>
+            <span class="ret">Suggested Retail Price: $60.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-229.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #1" loading="lazy">
+<img src="images/CCC-229_1.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #2" loading="lazy">
+<img src="images/CCC-229_2.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #3" loading="lazy">
+<img src="images/CCC-229_3.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #4" loading="lazy">
+<img src="images/CCC-229_4.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #5" loading="lazy">
+<img src="images/CCC-229_5.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #6" loading="lazy">
+<img src="images/CCC-229_6.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #7" loading="lazy">
+<img src="images/CCC-229_7.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #8" loading="lazy">
+<img src="images/CCC-229_8.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #9" loading="lazy">
+<img src="images/CCC-229_9.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #10" loading="lazy">
+<img src="images/CCC-229_10.jpg" alt="2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards ) #11" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-229</div>
+        <div class="title">2017-2018 Panini NBA Sticker Album + 50 Sticker Packs ( 250 Stickers 50 Cards )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $33.00 </span>
+            <span class="ret">Suggested Retail Price: $70.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-230</div>
+        <div class="title">2018 Panini NFL Sticker Album ( Hardcover )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $14.00 </span>
+            <span class="ret">Suggested Retail Price: $26.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-231.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #1" loading="lazy">
+<img src="images/CCC-231_1.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #2" loading="lazy">
+<img src="images/CCC-231_2.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #3" loading="lazy">
+<img src="images/CCC-231_3.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #4" loading="lazy">
+<img src="images/CCC-231_4.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #5" loading="lazy">
+<img src="images/CCC-231_5.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #6" loading="lazy">
+<img src="images/CCC-231_6.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #7" loading="lazy">
+<img src="images/CCC-231_7.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #8" loading="lazy">
+<img src="images/CCC-231_8.jpg" alt="2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant #9" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-231</div>
+        <div class="title">2018-2019 Panini NBA Sticker Album Doncic Rookie Morant  Curry LeBron Durant</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $11.00 </span>
+            <span class="ret">Suggested Retail Price: $20.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-232.jpg" alt="2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo #1" loading="lazy">
+<img src="images/CCC-232_1.jpg" alt="2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo #2" loading="lazy">
+<img src="images/CCC-232_2.jpg" alt="2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo #3" loading="lazy">
+<img src="images/CCC-232_3.jpg" alt="2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo #4" loading="lazy">
+<img src="images/CCC-232_4.jpg" alt="2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo #5" loading="lazy">
+<img src="images/CCC-232_5.jpg" alt="2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo #6" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-232</div>
+        <div class="title">2020 PANINI ADRENALYN XL FIFA 365 Factory Sealed Box Mbappe Messi Ronaldo</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $27.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-233.jpg" alt="2020 Panini UEFA Euro Tournament Edition Hardcover Sticker Album #1" loading="lazy">
+<img src="images/CCC-233_1.jpg" alt="2020 Panini UEFA Euro Tournament Edition Hardcover Sticker Album #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-233</div>
+        <div class="title">2020 Panini UEFA Euro Tournament Edition Hardcover Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $15.00 </span>
+            <span class="ret">Suggested Retail Price: $30.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-234.jpg" alt="50 2021-2022 Panini La Liga Santander Sticker Packs ( 250 Stickes ) #1" loading="lazy">
+<img src="images/CCC-234_1.jpg" alt="50 2021-2022 Panini La Liga Santander Sticker Packs ( 250 Stickes ) #2" loading="lazy">
+<img src="images/CCC-234_2.jpg" alt="50 2021-2022 Panini La Liga Santander Sticker Packs ( 250 Stickes ) #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-234</div>
+        <div class="title">50 2021-2022 Panini La Liga Santander Sticker Packs ( 250 Stickes )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $25.00 </span>
+            <span class="ret">Suggested Retail Price: $43.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-235</div>
+        <div class="title">50 Navarrete Copa America Peru 2004 Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $19.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-237</div>
+        <div class="title">50 Panini AAA 25th Anniversary Sticker Packs (Silver Pack)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $22.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-238.jpg" alt="50 Panini AAA Blue Demon Jr Vs Wagner Wrestling Sticker Packs ( 250 Stickers )" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-238</div>
+        <div class="title">50 Panini AAA Blue Demon Jr Vs Wagner Wrestling Sticker Packs ( 250 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $21.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-239.jpg" alt="50 Panini AAA Lucha Libre Worldwide Red Sticker Pack #1" loading="lazy">
+<img src="images/CCC-239_1.jpg" alt="50 Panini AAA Lucha Libre Worldwide Red Sticker Pack #2" loading="lazy">
+<img src="images/CCC-239_2.jpg" alt="50 Panini AAA Lucha Libre Worldwide Red Sticker Pack #3" loading="lazy">
+<img src="images/CCC-239_3.jpg" alt="50 Panini AAA Lucha Libre Worldwide Red Sticker Pack #4" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-239</div>
+        <div class="title">50 Panini AAA Lucha Libre Worldwide Red Sticker Pack</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $22.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-240</div>
+        <div class="title">50 Panini AAA Triplemania Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $24.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-242.jpg" alt="50 Panini Blue Demon Jr Vs Dr Wagner Jr Packs + Album AAA Wrestling Lucha Libre" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-242</div>
+        <div class="title">50 Panini Blue Demon Jr Vs Dr Wagner Jr Packs + Album AAA Wrestling Lucha Libre</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $28.00 </span>
+            <span class="ret">Suggested Retail Price: $45.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-245.jpg" alt="50 Panini Euro 2020 Tournament Edition Sticker Packs #1" loading="lazy">
+<img src="images/CCC-245_1.jpg" alt="50 Panini Euro 2020 Tournament Edition Sticker Packs #2" loading="lazy">
+<img src="images/CCC-245_2.jpg" alt="50 Panini Euro 2020 Tournament Edition Sticker Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-245</div>
+        <div class="title">50 Panini Euro 2020 Tournament Edition Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $29.00 </span>
+            <span class="ret">Suggested Retail Price: $44.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-246</div>
+        <div class="title">50 Panini NFL 2016 Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $23.00 </span>
+            <span class="ret">Suggested Retail Price: $38.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-247.jpg" alt="50 WWE Rivals Navarrete Sticker Packs #1" loading="lazy">
+<img src="images/CCC-247_1.jpg" alt="50 WWE Rivals Navarrete Sticker Packs #2" loading="lazy">
+<img src="images/CCC-247_2.jpg" alt="50 WWE Rivals Navarrete Sticker Packs #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-247</div>
+        <div class="title">50 WWE Rivals Navarrete Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $24.00 </span>
+            <span class="ret">Suggested Retail Price: $45.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-248.jpg" alt="Club America Campeon 2018-19 Panini Album Hardcover #1" loading="lazy">
+<img src="images/CCC-248_1.jpg" alt="Club America Campeon 2018-19 Panini Album Hardcover #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-248</div>
+        <div class="title">Club America Campeon 2018-19 Panini Album Hardcover</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $20.00 </span>
+            <span class="ret">Suggested Retail Price: $35.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-249.jpg" alt="La Liga 2018-19 Panini Blister Pack (50 Stickers) 10 Sealed Packs Messi Sticker #1" loading="lazy">
+<img src="images/CCC-249_1.jpg" alt="La Liga 2018-19 Panini Blister Pack (50 Stickers) 10 Sealed Packs Messi Sticker #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-249</div>
+        <div class="title">La Liga 2018-19 Panini Blister Pack (50 Stickers) 10 Sealed Packs Messi Sticker</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $10.00 </span>
+            <span class="ret">Suggested Retail Price: $15.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 5</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-250</div>
+        <div class="title">NFL 2021 Panini Hardcover Sticker Album & Card Collection</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $23.00 </span>
+            <span class="ret">Suggested Retail Price: $36.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-252.jpg" alt="Panini Adrenalyn XL Women's World Cup 2023 Trading Cards Box (24 Packs)" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-252</div>
+        <div class="title">Panini Adrenalyn XL Women's World Cup 2023 Trading Cards Box (24 Packs)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $35.00 </span>
+            <span class="ret">Suggested Retail Price: $50.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-253</div>
+        <div class="title">Panini Blue Demon Vs Dr. Wagner Sticker AAA Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $10.00 </span>
+            <span class="ret">Suggested Retail Price: $14.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-255.jpg" alt="Panini Copa America USA 2024 Sticker Box (50 Sticker Packs) Made In Brazil" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-255</div>
+        <div class="title">Panini Copa America USA 2024 Sticker Box (50 Sticker Packs) Made In Brazil</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $25.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-256.jpg" alt="Panini Copa America USA 2024 Sticker Box + Album (50 Packs) Made In Brazil" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-256</div>
+        <div class="title">Panini Copa America USA 2024 Sticker Box + Album (50 Packs) Made In Brazil</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $28.00 </span>
+            <span class="ret">Suggested Retail Price: $45.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-257</div>
+        <div class="title">Panini Euro 2020 Tournament Edition Hardcover Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $18.00 </span>
+            <span class="ret">Suggested Retail Price: $27.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-258</div>
+        <div class="title">Panini Gira De Conquista AAA Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $16.00 </span>
+            <span class="ret">Suggested Retail Price: $22.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-259</div>
+        <div class="title">Panini La Liga 2019-20 Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $13.00 </span>
+            <span class="ret">Suggested Retail Price: $19.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-260.jpg" alt="Panini NFL 2018 Sealed Blister Pack x10 Packs (50 Stickers ) #1" loading="lazy">
+<img src="images/CCC-260_1.jpg" alt="Panini NFL 2018 Sealed Blister Pack x10 Packs (50 Stickers ) #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-260</div>
+        <div class="title">Panini NFL 2018 Sealed Blister Pack x10 Packs (50 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $13.00 </span>
+            <span class="ret">Suggested Retail Price: $20.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-261</div>
+        <div class="title">Panini NFL 2020 Sticker & Cards Collection Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $15.00 </span>
+            <span class="ret">Suggested Retail Price: $19.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-262</div>
+        <div class="title">Panini UEFA Euro 2020 Softcover Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $13.00 </span>
+            <span class="ret">Suggested Retail Price: $17.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-263</div>
+        <div class="title">Topps UEFA Champions League 2016-17 Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $14.00 </span>
+            <span class="ret">Suggested Retail Price: $18.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-264.jpg" alt="Topps WWE A-Z Sticker Album #1" loading="lazy">
+<img src="images/CCC-264_1.jpg" alt="Topps WWE A-Z Sticker Album #2" loading="lazy">
+<img src="images/CCC-264_2.jpg" alt="Topps WWE A-Z Sticker Album #3" loading="lazy">
+<img src="images/CCC-264_3.jpg" alt="Topps WWE A-Z Sticker Album #4" loading="lazy">
+<img src="images/CCC-264_4.jpg" alt="Topps WWE A-Z Sticker Album #5" loading="lazy">
+<img src="images/CCC-264_5.jpg" alt="Topps WWE A-Z Sticker Album #6" loading="lazy">
+<img src="images/CCC-264_6.jpg" alt="Topps WWE A-Z Sticker Album #7" loading="lazy">
+<img src="images/CCC-264_7.jpg" alt="Topps WWE A-Z Sticker Album #8" loading="lazy">
+<img src="images/CCC-264_8.jpg" alt="Topps WWE A-Z Sticker Album #9" loading="lazy">
+<img src="images/CCC-264_9.jpg" alt="Topps WWE A-Z Sticker Album #10" loading="lazy">
+<img src="images/CCC-264_10.jpg" alt="Topps WWE A-Z Sticker Album #11" loading="lazy">
+<img src="images/CCC-264_11.jpg" alt="Topps WWE A-Z Sticker Album #12" loading="lazy">
+<img src="images/CCC-264_12.jpg" alt="Topps WWE A-Z Sticker Album #13" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-264</div>
+        <div class="title">Topps WWE A-Z Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $13.00 </span>
+            <span class="ret">Suggested Retail Price: $19.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-265.jpg" alt="WWE Icons Sticker Album #1" loading="lazy">
+<img src="images/CCC-265_1.jpg" alt="WWE Icons Sticker Album #2" loading="lazy">
+<img src="images/CCC-265_2.jpg" alt="WWE Icons Sticker Album #3" loading="lazy">
+<img src="images/CCC-265_3.jpg" alt="WWE Icons Sticker Album #4" loading="lazy">
+<img src="images/CCC-265_4.jpg" alt="WWE Icons Sticker Album #5" loading="lazy">
+<img src="images/CCC-265_5.jpg" alt="WWE Icons Sticker Album #6" loading="lazy">
+<img src="images/CCC-265_6.jpg" alt="WWE Icons Sticker Album #7" loading="lazy">
+<img src="images/CCC-265_7.jpg" alt="WWE Icons Sticker Album #8" loading="lazy">
+<img src="images/CCC-265_8.jpg" alt="WWE Icons Sticker Album #9" loading="lazy">
+<img src="images/CCC-265_9.jpg" alt="WWE Icons Sticker Album #10" loading="lazy">
+<img src="images/CCC-265_10.jpg" alt="WWE Icons Sticker Album #11" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-265</div>
+        <div class="title">WWE Icons Sticker Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $12.00 </span>
+            <span class="ret">Suggested Retail Price: $19.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-267.jpg" alt="x50 FIFA 365 2017 Panini Sticker Packs Osimhen Rolando Modric Messi 250 Stickers #1" loading="lazy">
+<img src="images/CCC-267_1.jpg" alt="x50 FIFA 365 2017 Panini Sticker Packs Osimhen Rolando Modric Messi 250 Stickers #2" loading="lazy">
+<img src="images/CCC-267_2.jpg" alt="x50 FIFA 365 2017 Panini Sticker Packs Osimhen Rolando Modric Messi 250 Stickers #3" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-267</div>
+        <div class="title">x50 FIFA 365 2017 Panini Sticker Packs Osimhen Rolando Modric Messi 250 Stickers</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $30.00 </span>
+            <span class="ret">Suggested Retail Price: $43.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-268.jpg" alt="x50 Panini 2020 UEFA Euro Sticker Packs ( 250 Stickers ) #1" loading="lazy">
+<img src="images/CCC-268_1.jpg" alt="x50 Panini 2020 UEFA Euro Sticker Packs ( 250 Stickers ) #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-268</div>
+        <div class="title">x50 Panini 2020 UEFA Euro Sticker Packs ( 250 Stickers )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $21.00 </span>
+            <span class="ret">Suggested Retail Price: $34.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-269.jpg" alt="x50 Panini NFL 2017 Sticker Packs + Sticker Album (250 Stickers) #1" loading="lazy">
+<img src="images/CCC-269_1.jpg" alt="x50 Panini NFL 2017 Sticker Packs + Sticker Album (250 Stickers) #2" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-269</div>
+        <div class="title">x50 Panini NFL 2017 Sticker Packs + Sticker Album (250 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $23.00 </span>
+            <span class="ret">Suggested Retail Price: $40.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-270</div>
+        <div class="title">x50 Panini NFL 2021 Sticker & Card Collection ( 250 Stickers + 50 Cards )</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $29.00 </span>
+            <span class="ret">Suggested Retail Price: $55.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 3</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-271.jpg" alt="1 Panini Premier League 2021 Sticker Box #1" loading="lazy">
+<img src="images/CCC-271_1.jpg" alt="1 Panini Premier League 2021 Sticker Box #2" loading="lazy">
+<img src="images/CCC-271_2.jpg" alt="1 Panini Premier League 2021 Sticker Box #3" loading="lazy">
+<img src="images/CCC-271_3.jpg" alt="1 Panini Premier League 2021 Sticker Box #4" loading="lazy">
+<img src="images/CCC-271_4.jpg" alt="1 Panini Premier League 2021 Sticker Box #5" loading="lazy">
+<img src="images/CCC-271_5.jpg" alt="1 Panini Premier League 2021 Sticker Box #6" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-271</div>
+        <div class="title">1 Panini Premier League 2021 Sticker Box</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $45.00 </span>
+            <span class="ret">Suggested Retail Price: $78.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-272</div>
+        <div class="title">x50 Sticker Packs Panini AAA La Conquista Wrestling XXVI + Sticker Album Lucha</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $26.00 </span>
+            <span class="ret">Suggested Retail Price: $42.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-273</div>
+        <div class="title">Panini XL Adrenalyn Fifa World Cup 2026 Sealed Box</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $60.00 </span>
+            <span class="ret">Suggested Retail Price: $100.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-274</div>
+        <div class="title">1 Topps Premier League 2026 Sticker Box (100 packs) + 1 Album</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $135 </span>
+            <span class="ret">Suggested Retail Price: $190 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-275</div>
+        <div class="title">50 Topps Premier League 2026 Sticker Packs</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $60.00 </span>
+            <span class="ret">Suggested Retail Price: $100.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-276</div>
+        <div class="title">Panini Stranger Things Card Box (24 Packs 6 Cards)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $46 </span>
+            <span class="ret">Suggested Retail Price: $65 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-277</div>
+        <div class="title">We Are Fifa Special Box Panini Adrenalyn XL (8 packs + 10 Limited Cards+ 2 XXI Limited Cards)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $60.00 </span>
+            <span class="ret">Suggested Retail Price: $80.00 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-278</div>
+        <div class="title">Fifa Dream Box Panini Adrenalyn XL (50 Cards With Real Autographs)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $48 </span>
+            <span class="ret">Suggested Retail Price: $80 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-279</div>
+        <div class="title">Fifa World Cup 2026 Panini Adrenalyn XL Upgrade (50 cards +2 Limited edition)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $29 </span>
+            <span class="ret">Suggested Retail Price: $41 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="no-img">No image</div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-280</div>
+        <div class="title">50 Panini Fifa World Cup Russia 2018</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $40 </span>
+            <span class="ret">Suggested Retail Price: $62 </span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><img src="images/CCC-287.jpg" alt="50 Panini 2017-2018 NBA Sticker Packs (200 Stickers 50 Cards)" loading="lazy"></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-287</div>
+        <div class="title">50 Panini 2017-2018 NBA Sticker Packs (200 Stickers 50 Cards)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $24.00</span>
+            <span class="ret">Suggested Retail Price: $33.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-290.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #1" loading="lazy">
+<img src="images/CCC-290_1.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #2" loading="lazy">
+<img src="images/CCC-290_2.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #3" loading="lazy">
+<img src="images/CCC-290_3.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #4" loading="lazy">
+<img src="images/CCC-290_4.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #5" loading="lazy">
+<img src="images/CCC-290_5.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #6" loading="lazy">
+<img src="images/CCC-290_6.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #7" loading="lazy">
+<img src="images/CCC-290_7.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #8" loading="lazy">
+<img src="images/CCC-290_8.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #9" loading="lazy">
+<img src="images/CCC-290_9.jpg" alt="50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers) #10" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-290</div>
+        <div class="title">50 Imagics Lucha Libre Sticker Packs +1 Album (250 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $38.00</span>
+            <span class="ret">Suggested Retail Price: $65.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-img"><div class="carousel"><img src="images/CCC-291.jpg" alt="50 Imagics Lucha Libre Sticker Packs  (250 Stickers) #1" loading="lazy">
+<img src="images/CCC-291_1.jpg" alt="50 Imagics Lucha Libre Sticker Packs  (250 Stickers) #2" loading="lazy">
+<img src="images/CCC-291_2.jpg" alt="50 Imagics Lucha Libre Sticker Packs  (250 Stickers) #3" loading="lazy">
+<img src="images/CCC-291_3.jpg" alt="50 Imagics Lucha Libre Sticker Packs  (250 Stickers) #4" loading="lazy"></div></div>
+    <div class="card-body">
+        <div class="sku">SKU: CCC-291</div>
+        <div class="title">50 Imagics Lucha Libre Sticker Packs  (250 Stickers)</div>
+        <div class="prices">
+            <span class="ws">Wholesale: $30.00</span>
+            <span class="ret">Suggested Retail Price: $50.00</span>
+        </div>
+        
+        <div class="min">Min. order: 1</div>
+    </div>
+</div></div>
+</div>
+<footer>
+    <img class="footer-logo" src="images/logo_footer.png" alt="City Cat Collectibles">
+    <p><strong>City Cat Collectibles</strong> &mdash; Wholesale Catalogue &mdash; 2026</p>
+    <p>Telegram: t.me/+6btyrjZ15hg1MWNh &bull; Phone: +1 626 353 1845 &bull; Instagram: @citycatcollectibles</p>
+</footer>
+</body></html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Info — City Cat Collectibles</title>
+<style>@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#F4F5F7;color:#0C2431;line-height:1.5}
+a{color:#C8CDD8;text-decoration:none}
+nav{background:#0C2431;padding:16px 24px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 28px;position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+nav .brand{color:#C8CDD8;font-size:20px;font-weight:800;letter-spacing:1px;margin-right:auto;text-transform:uppercase}
+nav a.nav-link{color:#fff;font-size:13px;font-weight:600;padding:6px 14px;border-radius:4px;transition:background .2s;text-transform:uppercase;letter-spacing:.5px}
+nav a.nav-link:hover,nav a.nav-link.active{background:rgba(200,205,216,.15);color:#C8CDD8}
+.cover{min-height:80vh;background:linear-gradient(135deg,#0C2431 0%,#1A3D52 100%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 24px}
+.cover .logo{max-height:140px;margin-bottom:24px}
+.cover h1{font-weight:900;font-size:clamp(2rem,8vw,4rem);color:#fff;line-height:1.1;text-transform:uppercase;letter-spacing:2px}
+.cover h1.gold{color:#C8CDD8}
+.cover h2{font-weight:500;font-size:clamp(.85rem,2.5vw,1.1rem);color:#C8CDD8;letter-spacing:6px;margin:16px 0 32px;text-transform:uppercase}
+.cover-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;max-width:600px}
+.cover-links a{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12);padding:12px 28px;border-radius:6px;font-weight:700;font-size:14px;transition:all .25s;text-transform:uppercase;letter-spacing:1px}
+.cover-links a:hover{background:#C8CDD8;color:#0C2431;border-color:#C8CDD8}
+.cover-info{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between;margin-top:auto;padding:32px 40px 24px;width:100%;max-width:900px;border-top:1px solid rgba(255,255,255,.08)}
+.cover-info div{flex:1;min-width:160px}
+.cover-info strong{display:block;color:#C8CDD8;font-size:10px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;font-weight:600}
+.cover-info p{color:rgba(255,255,255,.5);font-size:12px;margin:0;font-weight:400}
+.page{padding:24px;max-width:1100px;margin:0 auto}
+.cat-banner{background:linear-gradient(135deg,#0C2431,#1A3D52);color:#fff;padding:28px 32px;border-radius:8px;margin-bottom:20px}
+.cat-banner h2{font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:1px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:550px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:6px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:box-shadow .2s;display:flex;flex-direction:column;border:1px solid rgba(10,17,40,0.10)}
+.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.10)}
+.card-img{width:100%;aspect-ratio:1;background:#f0f0f0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:contain}
+.carousel{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;width:100%;height:100%}
+.carousel img{flex:0 0 100%;scroll-snap-align:start;width:100%;height:100%;object-fit:contain}
+.no-img{color:#aaa;font-size:11px;font-weight:500}
+.card-body{padding:12px 14px 14px;flex:1;display:flex;flex-direction:column;gap:5px}
+.sku{font-size:10px;color:#5A6177;font-weight:500;text-transform:uppercase;letter-spacing:.5px}
+.title{font-size:12px;font-weight:600;line-height:1.4;color:#0C2431}
+.prices{display:flex;flex-direction:column;gap:2px;margin-top:auto;padding-top:8px;border-top:1px solid rgba(10,17,40,0.10)}
+.ws{font-size:14px;font-weight:700;color:#0C2431}
+.ret{font-size:11px;color:#5A6177;font-weight:500}
+.stock-yes{font-size:11px;color:#1A7A3C;font-weight:600}
+.stock-no{font-size:11px;color:#AA2222;font-weight:600}
+.min{font-size:10px;color:#aaa;font-weight:500}
+footer{text-align:center;padding:24px;color:#5A6177;font-size:11px;font-weight:500}
+footer strong{color:#0C2431;font-weight:700}
+.footer-logo{display:block;max-height:100px;margin:0 auto 14px}
+footer strong{color:#0C2431;font-weight:700}
+
+.info-page{max-width:800px;margin:0 auto;padding:24px}
+.info-page h1{font-weight:800;font-size:24px;color:#0C2431;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.info-page .subtitle{color:#5A6177;font-size:13px;margin-bottom:32px;padding-bottom:16px;border-bottom:2px solid #C8CDD8}
+.info-page section{margin-bottom:28px}
+.info-page h2{font-weight:700;font-size:15px;color:#0C2431;border-left:3px solid #C8CDD8;padding-left:12px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+.info-page p,.info-page li{font-size:13px;line-height:1.7;color:#333;font-weight:400}
+.info-page ul{padding-left:20px;margin:8px 0}
+.info-page ul li{margin-bottom:6px}
+.info-page .highlight{background:#eef0f5;border:1px solid #d0d4de;border-radius:6px;padding:14px 18px;margin:16px 0}
+.info-page .highlight strong{color:#0C2431}
+.info-page .contact-row{display:flex;flex-wrap:wrap;gap:24px;margin-top:12px}
+.info-page .contact-row div{flex:1;min-width:180px}
+.info-page .contact-row strong{color:#C8CDD8;font-weight:600;text-transform:uppercase;font-size:11px;letter-spacing:.5px}
+</style></head>
+<body>
+<nav>
+    <span class="brand">CITY CAT COLLECTIBLES</span>
+    <a class="nav-link" href="index.html">Home</a>
+    <a class="nav-link " href="About.html">About Us</a>
+    <a class="nav-link " href="Startup.html">Getting Started</a>
+    <a class="nav-link active" href="Info.html">Info</a>
+    <a class="nav-link " href="Anime.html">Anime</a>
+    <a class="nav-link " href="Disney.html">Disney</a>
+    <a class="nav-link " href="Sports.html">Sports</a>
+    <a class="nav-link " href="Other.html">Other</a>
+</nav>
+<div class="info-page">
+    <h1>Ordering Information</h1>
+    <p class="subtitle">Please review the following before placing an order.</p>
+
+    <section>
+        <h2>Pricing</h2>
+        <p>Suggested retail prices are based on historical sales data and are displayed without decimals for clarity. Both wholesale prices and minimum order quantities are subject to change without notice.</p>
+        <p><strong>Wholesale prices and minimum orders are non-negotiable.</strong></p>
+    </section>
+
+    <section>
+        <h2>How to Order</h2>
+        <p>Submit your order with <strong>only the SKU and quantity</strong> for each item:</p>
+        <div class="highlight">
+            <p><strong>Format:</strong> &nbsp; SKU &mdash; Quantity</p>
+            <p><strong>Example:</strong> &nbsp; CCC-012 &mdash; 5</p>
+        </div>
+        <p>The number of units per SKU is indicated at the beginning of each product title (e.g. &ldquo;50 Panini Dragon Ball Super Packs&rdquo; = 50 sticker packs per unit).</p>
+    </section>
+
+    <section>
+        <h2>Availability &amp; Restocking</h2>
+        <p>Items marked as <strong>limited quantity</strong> <strong>will not be restocked</strong>. Once sold out, the SKU is permanently removed. We recommend checking this catalogue regularly as we add new products on an ongoing basis.</p>
+        <p>If an item you want is currently marked as out of stock, send us the SKU to be added to the <strong>waiting list</strong>. You will receive a notification and <strong>24-hour priority access</strong> before non-listed buyers.</p>
+    </section>
+
+    <section>
+        <h2>Condition</h2>
+        <p>Products may or may not be in mint condition. Please review the photos carefully before ordering — they serve as the definitive reference for each item's state.</p>
+        <p>Please keep in mind that most items in our inventory are vintage collectibles sourced from different parts of the world and are no longer being printed. They may become unavailable at any time and may present minor imperfections or signs of age consistent with their nature as discontinued collectibles. Prices on vintage items tend to increase over time as availability decreases. We appreciate your understanding.</p>
+        <p>A note on languages: the vast majority of our albums, box sets, and printed materials are in Spanish, Italian, Portuguese, or Polish. Only a small selection is in English. If you have any doubts about the language of a specific item, please ask before purchasing — we are happy to confirm.</p>
+    </section>
+
+    <section>
+        <h2>Shipping</h2>
+        <p>All orders are carefully packed and fully insured. You will receive a tracking number within <strong>5–7 business days</strong> after your order ships.</p>
+        <p>Please be aware that international orders may be subject to customs duties, taxes, or import fees imposed by your country. These charges are the responsibility of the buyer — please check with your local customs office before placing an order.</p>
+        <p>We document every shipment with photos and video at the time of packing. If your package arrives damaged:</p>
+        <ul>
+            <li><strong>Do not open the box</strong> — keep all packaging intact</li>
+            <li>Take clear photos of the exterior and any visible damage</li>
+            <li>Contact us immediately — we will work with you to resolve the issue</li>
+        </ul>
+        <p>Feel free to reach out at any point during the process. We are here to help from order to delivery.</p>
+    </section>
+
+    <section>
+        <h2>Minimum Order</h2>
+        <div class="highlight">
+            <p><strong>$1,000 USD</strong> minimum order &nbsp;+&nbsp; shipping</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Contact</h2>
+        <div class="contact-row">
+            <div><strong>Telegram</strong><br>t.me/+6btyrjZ15hg1MWNh</div>
+            <div><strong>Phone</strong><br>+1 626 353 1845</div>
+            <div><strong>Instagram</strong><br>@citycatcollectibles</div>
+        </div>
+    </section>
+</div>
+<footer>
+    <img class="footer-logo" src="images/logo_footer.png" alt="City Cat Collectibles">
+    <p><strong>City Cat Collectibles</strong> &mdash; Wholesale Catalogue &mdash; 2026</p>
+    <p>Telegram: t.me/+6btyrjZ15hg1MWNh &bull; Phone: +1 626 353 1845 &bull; Instagram: @citycatcollectibles</p>
+</footer>
+</body></html>
